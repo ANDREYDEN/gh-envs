@@ -9,6 +9,8 @@ on:
       secrets:
         BACKEND_URL:
           required: true
+        FIREBASE_SERVICE_ACCOUNT_GH_ENVS_2022:
+          required: true
 
 jobs:
   build_and_preview:
