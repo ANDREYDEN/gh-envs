@@ -1,0 +1,27 @@
+name: Development - Deploy to Firebase Hosting on PR
+
+on: 
+  push:
+      branches: [development]
+
+jobs:
+  build_and_preview:
+    runs-on: ubuntu-latest
+    env:
+      BACKEND_URL: ${{ secrets.DEVELOPMENT_BACKEND_URL }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Install dependecies
+        run: npm ci 
+      
+      - name: Build project
+        run: npm run build
+      
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GH_ENVS_2022 }}'
+          projectId: gh-envs-2022
+          channelId: development
