@@ -2,7 +2,7 @@ name: Production - Deploy to Firebase Hosting on PR
 
 on: 
   push:
-      branches: [master]
+      branches: [live]
 
 jobs:
   build_and_preview:
