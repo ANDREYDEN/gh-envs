@@ -2,7 +2,7 @@ name: Production - Deploy to Firebase Hosting on PR
 
 on: 
   push:
-      branches: [master]
+    branches: [master]
 
 jobs:
   build_and_preview:
@@ -11,3 +11,4 @@ jobs:
       channel: live
     secrets:
       BACKEND_URL: ${{ secrets.PRODUCTION_BACKEND_URL }}
+      FIREBASE_SERVICE_ACCOUNT_GH_ENVS_2022: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GH_ENVS_2022 }}
